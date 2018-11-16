@@ -28,11 +28,12 @@ function 숫자뽑기(){
 	숫자배열 = [];
 	for (var i = 0; i< 4; i += 1){
 		var 뽑은것 = 숫자후보.splice(Math.floor(Math.random() * (9 - i)), 1)[0];
+		console.log(뽑은것)
 		숫자배열.push(뽑은것)
 	}
 }
  
-console.log(숫자배열)
+ 숫자뽑기()
 
 
 

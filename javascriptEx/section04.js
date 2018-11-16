@@ -8,6 +8,7 @@ var 결과 = document.createElement('div');
 var 비동기콜백 = function(이벤트) {
 	var 몇줄 = 줄들.indexOf(이벤트.target.parentNode);
 	var 몇칸 = 칸들[몇줄].indexOf(이벤트.target);
+
 	if(칸들[몇줄][몇칸].textContent !== ''){//칸이 이미 채워져 있는가?
 
 	}else{ // 빈칸이면
@@ -42,7 +43,7 @@ var 비동기콜백 = function(이벤트) {
 			}
 		}
 		// 대각선 검사
-		if(Math.abs(몇줄 - 몇칸) === 2){
+		if(Math.abs(몇줄 + 몇칸) === 2){
 			if(
 				칸들[0][2].textContent === 턴 && 
 				칸들[1][1].textContent === 턴 && 
@@ -72,17 +73,29 @@ var 비동기콜백 = function(이벤트) {
 }
 
 for(var i=1; i <= 3; i += 1){
+
+
+
 	var 줄 = document.createElement('tr');
 	줄들.push(줄);
+
 	칸들.push([]);
+
+
+
 	for(var j=1; j <= 3; j += 1){
 		var 칸 = document.createElement('td');
 		칸.addEventListener('click',비동기콜백)
 		칸들[i - 1].push(칸);
 		줄.append(칸);
 	}
+
+
 	테이블.append(줄)
 }
+
+
+
 바디.append(테이블);
 바디.append(결과);
 

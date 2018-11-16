@@ -1,10 +1,10 @@
 var 바디 = document.body;
 var 단어 = document.createElement('div');
 단어.textContent = '유재호';
-document.body.append(단어);
+바디.append(단어);
 
 var 폼 = document.createElement('form');
-document.body.append(폼)
+바디.append(폼)
 
 var 입력창 = document.createElement('input');
 폼.append(입력창);
@@ -13,7 +13,7 @@ var 버튼 = document.createElement('button');
 버튼.textContent = '입력!';
 
 var 결과창 = document.createElement('div');
-document.body.append(결과창)
+바디.append(결과창)
 
 
 
