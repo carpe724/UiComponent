@@ -45,7 +45,7 @@ function 공색칠하기(숫자, 결과창){
 	}else if(숫자 <= 20){
 		배경색 = 'orange';
 	}else if(숫자 <= 30){
-		배경색 = 'yellow';
+		배경색 = 'sandybrown';
 	}else if(숫자 <= 40){
 		배경색 = 'blue';
 	}else{
@@ -58,26 +58,26 @@ function 공색칠하기(숫자, 결과창){
 
 setTimeout(function 비동기콜백함수(){
 	공색칠하기(당첨숫자들[0], 결과창);
-}, 1000);
+}, 500);
 setTimeout(function 비동기콜백함수(){
 	공색칠하기(당첨숫자들[1], 결과창);
-}, 2000);
+}, 1000);
 setTimeout(function 비동기콜백함수(){
 	공색칠하기(당첨숫자들[2], 결과창);
-}, 3000);
+}, 1500);
 setTimeout(function 비동기콜백함수(){
 	공색칠하기(당첨숫자들[3], 결과창);
-}, 4000);
+}, 2000);
 setTimeout(function 비동기콜백함수(){
 	공색칠하기(당첨숫자들[4], 결과창);
-}, 5000);
+}, 2500);
 setTimeout(function 비동기콜백함수(){
 	공색칠하기(당첨숫자들[5], 결과창);
-}, 6000);
+}, 3000);
 
 setTimeout(function 비동기콜백함수(){
 	// var 칸 = document.getElementsByClassName('보너스')[0];
 	var 칸 = document.querySelector('.보너스');
 	공색칠하기(보너스, 칸)
-}, 7000);
+}, 4000);
 
