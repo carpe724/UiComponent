@@ -6,31 +6,95 @@
 </head>
 <body>
 
-	
-	<div>당첨 숫자</div>	
+	<!-- 5 -->
+<!-- 	<div>당첨 숫자</div>	
 	<div id="결과창"></div>		
 	<div>보너스</div>	
-	<div class="보너스"></div>			
+	<div class="보너스"></div>		 -->	
 	
+	<!-- 6 -->
 <!-- <div id="computer"></div>
-<button class="btn">가위</button>
-<button class="btn">바위</button>
-<button class="btn">보</button>
- -->
+<div class="buttonWrap">
+	<button class="btn">가위</button>
+	<button class="btn">바위</button>
+	<button class="btn">보</button>
+</div>
+<div id="result"></div>
+<button id="re">다시</button> -->
+
+
+<style>
+	body{
+		background: #2b2b2b;
+		color: #fff;
+	}
+	table{
+		border-collapse: collapse;
+	}
+	td{
+		border: 1px solid #ccc;
+		width: 20px;
+		height: 20px;
+		line-height: 20px;
+		text-align: center;
+	}	
+</style>
+
+
+<input id="hor" type="number" placeholder="가로" value="10">
+<input id="ver" type="number" placeholder="세로" value="10">
+<input id="mine" type="number" placeholder="지뢰" value="20">
+<button id="exec">실행</button>
+<table id="table">
+	<thead>
+		<tr>
+			<td><span id="timer">0</span>초</td>
+		</tr>
+	</thead>
+	<tbody></tbody>
+</table>
+
+
+
 	<!-- <script src="section01.js"></script> -->
 	<!-- <script src="section02.js"></script> -->
 	<!-- <script src="section03.js"></script> -->
 	<!-- <script src="section04_jh.js"></script> -->
-	<script src="section05_jh.js"></script>
-	<!-- <script src="section06.js"></script> -->
+	<!-- <script src="section05_jh.js"></script> -->
+	<!-- <script src="section06_jh.js"></script> -->
+	<!-- <script src="section07.js"></script> -->
+	<script>
+		var x = "global";
+		function f () {
+		    console.log(x);            //undefined 출력
+		    
+		    x = "local";    //지역변수 "local" 선언
+		    
+		    console.log(x);            //"local" 출력
+		}
+		f();
+	</script>
 
-	
-
-	
+	<!-- 
 	<style>
-		#computer{
+		body{
+			text-align: center;
+		}
+		button:focus{
+			background: yellow;
+		}
+		#computer{ 
 			width: 150px;
 			height: 200px;
+			line-height: 200px;
+			margin: 0 auto;
+			font-size: 30px;
+			font-weight: 600;
+		}
+		#result{
+			height: 300px;
+			line-height: 300px;
+			font-size: green;
 		}
 		.result{
 			position: absolute;
@@ -66,6 +130,6 @@
 			cursor: pointer;
 		}
 	</style>
-	
+	 -->
 </body>
 </html>
