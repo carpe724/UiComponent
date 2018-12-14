@@ -37,7 +37,12 @@
 		height: 20px;
 		line-height: 20px;
 		text-align: center;
+		background: #444;
 	}	
+	td.opened{
+		background: white;
+		color: #444;
+	}
 </style>
 
 
@@ -53,6 +58,7 @@
 	</thead>
 	<tbody></tbody>
 </table>
+<div id="result"></div>
 
 
 
@@ -62,18 +68,7 @@
 	<!-- <script src="section04_jh.js"></script> -->
 	<!-- <script src="section05_jh.js"></script> -->
 	<!-- <script src="section06_jh.js"></script> -->
-	<!-- <script src="section07.js"></script> -->
-	<script>
-		var x = "global";
-		function f () {
-		    console.log(x);            //undefined 출력
-		    
-		    x = "local";    //지역변수 "local" 선언
-		    
-		    console.log(x);            //"local" 출력
-		}
-		f();
-	</script>
+	<script src="section07_jh.js"></script>
 
 	<!-- 
 	<style>
