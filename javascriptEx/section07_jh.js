@@ -114,8 +114,15 @@ exec.addEventListener('click',function(){
 					}).length
 
 					if(wrapTdCount === 0){
+
+						// ============================================================ //
+
 						table.children[targetTr].children[targetTd].textContent = '';
+
+						// ============================================================ //
+
 						var wrapTdRe = [];
+						
 						if(dataset[targetTr - 1]){
 							wrapTdRe = wrapTdRe.concat(
 								table.children[targetTr - 1].children[targetTd - 1],
@@ -134,6 +141,9 @@ exec.addEventListener('click',function(){
 							table.children[targetTr].children[targetTd - 1],
 							table.children[targetTr].children[targetTd + 1]
 						)
+
+						// ============================================================ //
+
 						wrapTdRe.filter(function(v){
 							return !!v;
 						}).forEach(function(each){
@@ -143,6 +153,9 @@ exec.addEventListener('click',function(){
 								each.click();
 							}
 						})
+
+						// ============================================================ //
+
 					}else{
 						table.children[targetTr].children[targetTd].textContent = wrapTdCount;
 					}
