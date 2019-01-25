@@ -11,13 +11,20 @@ var 코드표 = {
     지뢰: 1,
     보통칸: 0,
 };
-document.querySelector('#exec').addEventListener('click', function() {
-    // 내부 먼저 초기화
+
+// 초기화
+function mine_int(){
     tbody.innerHTML = '';
     document.querySelector('#result').textContent = '';
     dataset = [];
     열은칸 = 0;
     중단플래그 = false;
+}
+
+
+document.querySelector('#exec').addEventListener('click', function() {
+    mine_int();
+    
     var hor = parseInt(document.querySelector('#hor').value);
     var ver = parseInt(document.querySelector('#ver').value);
     var mine = parseInt(document.querySelector('#mine').value);

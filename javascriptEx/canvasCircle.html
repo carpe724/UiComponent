@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>canvasCircle</title>
+</head>
+<body>
+
+
+
+    <canvas id="canvas"></canvas>
+
+    <style>
+        #canvas{width: 100%;height: 80vh}
+    .dot{
+        width: 1px;
+        height: 1px;
+        float: left;
+    }
+    </style>
+
+    <script>
+            const area = document.getElementById('canvas');
+            
+            function getHex() {
+              var letters = '0123456789ABCDEF';
+              var color = '#';
+              for (var i = 0; i < 6; i++) {
+                color += letters[Math.floor(Math.random() * 16)];
+              }
+              return color;
+            }
+            
+            let ctx = area.getContext("2d");
+
+        console.time('Draw using Canvas');
+
+        for(let i = 0; i < 500; i++) {
+            for(let j = 0; j < 500; j++) {
+                ctx.fillStyle = getHex();
+                ctx.fillRect(i, j, 1, 1);
+            }
+        }
+
+        console.timeEnd('Draw using Canvas');
+                </script>
+
+</body>
+</html>

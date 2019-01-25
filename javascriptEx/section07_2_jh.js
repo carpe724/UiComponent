@@ -39,6 +39,21 @@ function reset(){
 	dataset = [];
 	makeDataset();
 }
+// Pollyfill
+function travelEmptyCells(dataset, i, j, visited) {
+	if (i < 0 || i >= tableVerValue) return;
+	if (j < 0 || j >= tableHorValue) return;
+	if (visited[i + "," + j] || dataset[i][j] !== 1) {
+		return;
+	}
+	visited[i + "," + j] = true; // I have visited i, j  !!!
+	// up
+	travelEmptyCells(dataset, i - 1, j, visited);
+	travelEmptyCells(dataset, i + 1, j, visited);
+	travelEmptyCells(dataset, i, j - 1, visited);
+	travelEmptyCells(dataset, i, j + 1, visited);
+	console.log("Travelled to " + i  + ", " + j);
+}
 
 // 지뢰 만들기
 function makeMine(){
@@ -140,8 +155,6 @@ function leftClick(e){
 			// ============================================================ //
 
 			var wrapTdRe = [];
-			// 매번 다 채크할필요가 있을까? 해당 채크된곳 데이터셋을 변경한다면?
-			// 데이터셋 내용에서 한번 필터링을한다면??
 			if(dataset[targetTr - 1]){
 				wrapTdRe = wrapTdRe.concat(
 					table.children[targetTr - 1].children[targetTd - 1],
@@ -168,11 +181,15 @@ function leftClick(e){
 			}).forEach(function(each){
 				var eachTd = each.cellIndex;
 				var eachTr = each.parentNode.rowIndex;
-				if(dataset[eachTr][eachTd] === 1){
-					console.log('each')
-					setTimeout(function(){
-						each.click();
-					})
+				if(dataset[eachTr][eachTd] === 1) {
+					// flood fill algorithm
+					debugger;
+					let visited = {};
+					travelEmptyCells(dataset, eachTr - 1, eachTd, visited);
+					travelEmptyCells(dataset, eachTr + 1, eachTd, visited);
+					travelEmptyCells(dataset, eachTr, eachTd - 1, visited);
+					travelEmptyCells(dataset, eachTr, eachTd + 1, visited);
+					// console.log('each')
 				}
 			})
 

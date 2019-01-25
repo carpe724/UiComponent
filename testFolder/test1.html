@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+    <style>
+        body,html{
+            margin: 0;
+            padding: 0;
+            height: 100%;
+        }
+    .container {
+        display: flex;
+        flex-direction: column; 
+        height: 100%;
+        border: 5px solid green;
+        box-sizing: border-box;
+    }
+    .header{
+        height: 40px;
+        border: 3px solid black;
+    }
+    .nav{
+        flex-direction: row;
+        display: flex;
+        flex: 1;
+        width: 200px;
+        border: 2px solid red;
+    }
+    .section{
+        flex-direction: row; 
+        width: 400px;
+        border: 2px solid blue;
+    }
+    </style>
+
+    <div class="container">
+        <div class="header">
+            header
+        </div>
+        <div class="nav">
+            <ul>
+                <li>홈</li>
+                <li>메뉴1</li>
+                <li>메뉴2</li>
+                <li>메뉴3</li>
+                <li>메뉴4</li>
+            </ul>
+        </div>
+        <div class="section">
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolores soluta illo atque omnis quas culpa qui molestias necessitatibus consequatur repellendus, sed dolore vero voluptas eos! Delectus quo recusandae aliquid odio.
+        </div>
+    </div>
+</body>
+</html>
