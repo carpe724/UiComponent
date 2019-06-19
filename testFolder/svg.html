@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>svg 연습</title>
+</head>
+<body>
+
+<style>
+    body{
+        height: 200vh;
+    }
+    svg{
+        position: fixed;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        background: #eee;
+    }
+</style>
+    
+<svg width="500px" height="500px">
+    <!-- <path 
+        d="M250,2.5 A247.5,247.5 0 1,1 74.99,425.00"
+        fill= "none"
+        stroke-width="2"
+        stroke="red"
+    /> -->
+
+    <!-- <path 
+        d="M250,2.5 A247.5,247.5 0 1,1 2.5,250.00"
+        fill= "none"
+        stroke-width="2"
+        stroke="red"
+    /> -->
+
+     <path 
+        d="
+            M250,1 
+            A249,249 0 0,1 499,250
+            A249,249 0 0,1 250,499
+            A249,249 0 0,1 1,250
+            A249,249 0 0,1 250,1 Z
+        "
+        fill= "none"
+        stroke-width="2"
+        stroke="red"
+    />
+
+    
+
+</svg>
+
+<style>
+.path {
+  stroke-dasharray: 1558;
+  stroke-dashoffset: 1558;
+  stroke-dashoffset: 0;
+}
+
+.path1 path{
+  animation: dash1 0.3s linear forwards;
+}
+
+.path2 path{
+  animation: dash2 0.3s linear forwards;
+}
+
+.path3 path{
+  animation: dash3 0.3s linear forwards;
+}
+
+.path4 path{
+  animation: dash4 0.3s linear forwards;
+}
+
+@keyframes dash1 {
+    from{
+        stroke-dashoffset: 1558;
+    }
+  to {
+    stroke-dashoffset: 1168.5;
+  }
+}
+
+@keyframes dash2 {
+    from{
+        stroke-dashoffset: 1168.5;
+    }
+    to {
+        stroke-dashoffset: 779;
+    }
+}
+
+@keyframes dash3 {
+    from{
+        stroke-dashoffset: 779;
+    }
+    to {
+        stroke-dashoffset: 389.5;
+    }
+}
+
+@keyframes dash4 {
+    from{
+        stroke-dashoffset: 389.5;
+    }
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+</style>
+
+<script>
+    var path = document.querySelector('path');
+    var length = path.getTotalLength();
+    console.log(length)
+
+    var svg = document.querySelector('svg');
+    var i = 1;
+    svg.addEventListener('click', function(){
+        if(i < 5){
+            svg.classList.add('path' + i)
+            i++
+            console.log(i)
+        }else{
+            svg.classList = '';
+            i = 1;
+        }
+    })
+
+</script>
+
+</body>
+</html>

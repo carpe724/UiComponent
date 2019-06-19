@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+</head>
+
+<body>
+
+<h1>Scroll me</h1>
+
+
+
+<script>
+  function populate() {
+      console.log('gd')
+    while(true) {
+      let windowRelativeBottom = document.documentElement.getBoundingClientRect().bottom;
+      if (windowRelativeBottom > document.documentElement.clientHeight + 100) break;
+      document.body.insertAdjacentHTML("beforeend", `<p>Date: ${new Date()}</p>`);
+    }
+  }
+
+//   window.addEventListener('scroll', populate);
+
+var i = 0;
+window.addEventListener('scroll', function(){
+    var node = document.createElement('p');
+    var textnode = document.createTextNode(new Date().toString()); 
+    node.appendChild(textnode);
+    document.getElementById('desc').appendChild(node);
+})
+
+  populate(); // init document
+</script>
+
+<div id="desc"></div>
+
+</body>
+</html>

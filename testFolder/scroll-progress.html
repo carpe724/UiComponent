@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+<style>
+    body{
+        margin: 0;
+        padding: 0;
+    }
+    .section{
+        height: 500px;
+        line-height: 500px;
+        text-align: center;
+        background: #ccc;
+    }
+    .section:nth-child(even){
+        background: #ddd;
+    }
+    #progressBar{
+        position: fixed;
+        top: 0;
+        left: 0;
+        background: coral;
+        height: 5px;
+    }
+
+</style>
+
+
+    <div id="progressBar"></div>
+    <div class="section">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni accusantium illo labore minima nostrum modi aut facilis adipisci quisquam quod consequuntur
+    </div>
+    <div class="section">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni accusantium illo labore minima nostrum modi aut facilis adipisci quisquam quod consequuntur
+    </div>
+    <div class="section">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni accusantium illo labore minima nostrum modi aut facilis adipisci quisquam quod consequuntur
+    </div>
+    <div class="section">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni accusantium illo labore minima nostrum modi aut facilis adipisci quisquam quod consequuntur
+    </div>
+    <div class="section">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni accusantium illo labore minima nostrum modi aut facilis adipisci quisquam quod consequuntur
+    </div>
+    <div class="section">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni accusantium illo labore minima nostrum modi aut facilis adipisci quisquam quod consequuntur
+    </div>
+    <div class="section">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni accusantium illo labore minima nostrum modi aut facilis adipisci quisquam quod consequuntur
+    </div>
+    <div class="section">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni accusantium illo labore minima nostrum modi aut facilis adipisci quisquam quod consequuntur
+    </div>
+    <div class="section">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni accusantium illo labore minima nostrum modi aut facilis adipisci quisquam quod consequuntur
+    </div>
+    <div class="section">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni accusantium illo labore minima nostrum modi aut facilis adipisci quisquam quod consequuntur
+    </div>
+    <div class="section">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni accusantium illo labore minima nostrum modi aut facilis adipisci quisquam quod consequuntur
+    </div>
+    <div class="section">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni accusantium illo labore minima nostrum modi aut facilis adipisci quisquam quod consequuntur
+    </div>
+    <div class="section">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni accusantium illo labore minima nostrum modi aut facilis adipisci quisquam quod consequuntur
+    </div>
+    <div class="section">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni accusantium illo labore minima nostrum modi aut facilis adipisci quisquam quod consequuntur
+    </div>
+    <div class="section">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni accusantium illo labore minima nostrum modi aut facilis adipisci quisquam quod consequuntur
+    </div>
+    <div class="section">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni accusantium illo labore minima nostrum modi aut facilis adipisci quisquam quod consequuntur
+    </div>
+    <div class="section">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni accusantium illo labore minima nostrum modi aut facilis adipisci quisquam quod consequuntur
+    </div>
+    <div class="section">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni accusantium illo labore minima nostrum modi aut facilis adipisci quisquam quod consequuntur
+    </div>
+
+
+
+
+<script>
+document.addEventListener('scroll',function(){
+    var scrollTop = window.scrollY;
+    var scrollBottom = document.body.scrollHeight - window.innerHeight;
+    var progressWidth = Math.floor(scrollTop / scrollBottom * 100);
+    document.getElementById('progressBar').style.width = progressWidth + "%";
+})
+
+</script>
+
+
+
+
+</body>
+</html>

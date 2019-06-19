@@ -1,0 +1,72 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <style>
+    body,
+    html {
+      height: 100%;
+      width: 100%;
+      padding: 0;
+      margin: 0;
+    }
+
+    #matrix {
+      width: 400px;
+      margin: auto;
+      overflow: auto;
+      text-align: justify;
+    }
+
+    #arrowTop {
+      height: 9px;
+      width: 14px;
+      color: green;
+      position: fixed;
+      top: 10px;
+      left: 10px;
+      cursor: pointer;
+    }
+
+    #arrowTop::before {
+      content: '▲';
+    }
+
+    #test{
+        background: red;
+        height: 300px;
+    }
+
+  </style>
+  <meta charset="utf-8">
+</head>
+
+<body>
+        <!-- <div id="test">test</div> -->
+  <div id="matrix">
+    <script>
+      for (let i = 0; i < 2000; i++) document.writeln(i)
+    </script>
+  </div>
+
+  <div id="arrowTop" hidden></div>
+
+ 
+
+  <script>
+
+    arrowTop.onclick = function() {
+      window.scrollTo(pageXOffset, 0);
+      // after scrollTo, there will be a "scroll" event, so the arrow will hide automatically
+    };
+
+    window.addEventListener('scroll', function() {
+    // console.log()
+      arrowTop.hidden = (pageYOffset < document.documentElement.clientHeight);
+      console.log(pageYOffset, document.documentElement.clientHeight)
+    // console.log((pageYOffset < document.documentElement.clientHeight));
+    // console.log((-4))
+    });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+<style>
+    html,body{
+        padding: 0;
+        margin: 0;
+        text-align: center;
+    }
+    h1{
+        margin: 0;
+    }
+    .box{
+        width: 200px;
+        height: 200px;
+    }
+    .box p{
+        margin-top: 10px;
+        background: rgba(255,255,255,0.5);
+        word-break:keep-all;
+        word-wrap:break-word;
+    }
+    .wrap{
+        position: relative;
+        width: 100%;
+        height: 2000px;
+        background: #f1f1f1;
+    }
+    .relbox{
+        position: relative;
+        top: 100px;
+        left: 100px;
+        background: yellow;
+    }
+    .absolutebox{
+        position: absolute;
+        left: 50%;
+        top: 500px;
+        background: midnightblue;
+        color: #fff;
+    }
+    .fixedbox{
+        position: fixed;
+        right: 100px;
+        bottom: 100px;
+        background: orangered;
+        color: #fff;
+    }
+    ul{
+        position: fixed;
+        left: 50%;
+        top: 50px;
+        transform: translateX(-50%);
+    }
+</style>
+
+    
+<div class="wrap">
+
+    <h1>getBoundingClientRect</h1>
+    <ul>
+        <li>x: <i id="documentX"></i>, y: <i id="documentY"></i></li>
+        <li>left: <i id="documentLeft"></i>, top: <i id="documentTop"></i>, right: <i id="documentRight"></i>, bottom: <i id="documentBottom"></i></li>
+        <li>width: <i id="documentWidth"></i>, height: <i id="documentHeight"></i></li>
+    </ul>
+
+    <div class="box relbox">
+        rel box
+        <p></p>
+    </div>
+
+    <div class="box fixedbox">
+        fx box
+        <p></p>
+    </div>
+
+    <div class="box absolutebox">
+        ab box
+        <p></p>
+    </div>
+
+</div>
+
+
+<script>
+
+var documentX = document.getElementById('documentX'),
+    documentY = document.getElementById('documentY'),
+    documentLeft = document.getElementById('documentLeft'),
+    documentTop = document.getElementById('documentTop'),
+    documentRight = document.getElementById('documentRight'),
+    documentBottom = document.getElementById('documentBottom'),
+    documentWidth = document.getElementById('documentWidth'),
+    documentHeight = document.getElementById('documentHeight');
+
+window.addEventListener('scroll', bcr);
+window.addEventListener('resize', bcr);
+
+function box(el){
+
+    var brcDesc = JSON.stringify(document.getElementsByClassName(el)[0].getBoundingClientRect().toJSON());
+
+    var brcSlice = brcDesc.slice(1, brcDesc.length - 1)
+
+    var brcSplit = brcSlice.split(',');
+
+    
+
+    var brcText = "",
+        i = 0;
+    
+    for(i=0; i < brcSplit.length; i++){
+        brcText = brcText + brcSplit[i] + "<br>";
+    }
+    
+    document.getElementsByClassName(el)[0].children[0].innerHTML = 
+    brcText
+}
+
+function bcr (){
+    var getBCR = document.documentElement.getBoundingClientRect();
+    documentX.innerHTML = getBCR.x;
+    documentY.innerHTML = getBCR.y;
+    documentLeft.innerHTML = getBCR.left;
+    documentTop.innerHTML = getBCR.top;
+    documentRight.innerHTML = getBCR.right;
+    documentBottom.innerHTML = getBCR.bottom;
+    documentWidth.innerHTML = getBCR.width;
+    documentHeight.innerHTML = getBCR.height;
+
+    box('relbox');
+    box('fixedbox');
+    box('absolutebox');
+
+}
+bcr();
+
+
+</script>
+
+
+</body>
+</html>

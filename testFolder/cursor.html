@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+    <style>
+        body,html{
+            position: relative;
+            margin: 0;
+            padding: 0;
+            background: midnightblue;
+            height: 100%;
+            /* cursor: none; */
+            
+        }
+        body:active #cursor{
+            margin-top: -25px;
+            margin-left: -25px;
+            width: 50px;
+            height: 50px;
+            border-color: red;
+            transition: width 0.5s, height 0.5s;
+        }
+        #cursor{
+            
+            position: absolute;
+            margin-left: -15px;
+            margin-top: -15px;
+            width: 30px;
+            height: 30px;
+            border: 1px dashed #ccc;
+            border-radius: 50%;
+            animation: spinCursor 7s infinite linear;
+        }
+        @keyframes spinCursor{
+            form{
+                transform: rotate(0);
+            }
+            to{
+                transform: rotate(360deg);
+            }
+        }
+
+        .content{
+            height: 500px;
+            background: darkblue;
+            color: #ccc;
+            text-align: center;
+            padding-top: 50px;
+        }
+        .content:nth-child(even){
+            background: midnightblue;
+        }
+    </style>
+    <div id="cursor"></div>
+
+    <div class="content">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tenetur saepe sequi magnam quam illo quis omnis voluptatem repellat error voluptatum. Labore, quae. Iure a soluta dicta aperiam at ipsam vel.</div>
+    <div class="content">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tenetur saepe sequi magnam quam illo quis omnis voluptatem repellat error voluptatum. Labore, quae. Iure a soluta dicta aperiam at ipsam vel.</div>
+    <div class="content">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tenetur saepe sequi magnam quam illo quis omnis voluptatem repellat error voluptatum. Labore, quae. Iure a soluta dicta aperiam at ipsam vel.</div>
+    <div class="content">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tenetur saepe sequi magnam quam illo quis omnis voluptatem repellat error voluptatum. Labore, quae. Iure a soluta dicta aperiam at ipsam vel.</div>
+    <div class="content">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tenetur saepe sequi magnam quam illo quis omnis voluptatem repellat error voluptatum. Labore, quae. Iure a soluta dicta aperiam at ipsam vel.</div>
+
+
+    <script>
+        var X,Y
+        document.addEventListener('mousemove',function(event){
+            X = event.pageX;
+            Y = event.pageY;
+            var cursorPointer = document.getElementById('cursor');
+            cursorPointer.style.left = X+"px";
+            cursorPointer.style.top = Y+"px";
+        })
+    </script>
+</body>
+</html>

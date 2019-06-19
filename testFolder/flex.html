@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+
+
+    <div class="wrap">
+        <div class="box box1">a</div>
+        <div class="box box2">b</div>
+        <div class="box box3">c</div>
+    </div>
+
+    <form action="">
+        <label for="">test1</label>
+        <input type="text">
+        <label for="">test2 <br> dsafdsa</label>
+        <input type="text">
+    </form>
+
+    <style>
+        form{
+            width: 500px;
+            display: flex;
+            align-items: center;
+        }
+        form label{
+            width: 100px;
+            flex: none;
+        }
+        form input{
+            width: 400px;
+            flex: none;
+        }
+        body,html{
+            margin: 0;
+            padding: 0;
+            background: #fefefe;
+        }
+        .wrap{
+            display: flex;
+            /* height: 100vh; */
+            justify-content: center;
+            
+        }
+        .box{
+            border: 1px solid #ccc;
+            height: 100px;
+            background: lemonchiffon;
+            text-align: center;
+            font-size: 2em;
+            flex-basis: 100px;
+            word-wrap: break-word;
+            align-self: stretch;
+        }
+        .box1{
+            /* flex-grow: 1; */
+            
+        }
+        .box3{
+            flex-shrink: 0;
+        }
+    </style>
+
+</body>
+</html>

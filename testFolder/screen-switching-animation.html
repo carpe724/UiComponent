@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        html{
+            height: 100%;
+        }
+        body{
+            padding: 0;
+            margin: 0;
+            display: flex;
+            height: 100%;
+            justify-content: center;
+            align-items: center;
+        }
+        .section{
+            text-align: center;
+            padding: 30px;
+            padding-bottom: 80px;
+            width: 50%;
+        }
+        .section01{
+            background: lime;
+        }
+        #loading{
+            position: fixed;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: black;
+            animation: loading 0.5s linear forwards paused;
+        }
+        @keyframes loading{
+            from{
+                top: -100%;
+            }
+            to{
+                top: 0;
+            }
+        }
+        @keyframes loadingEnd{
+            from{
+                top: 0;
+            }
+            to{
+                top: -100%;
+            }
+        }
+        #loading.loadingActive{
+            animation-play-state: running;
+        }
+        #loading.loadingEnd{
+            animation: loadingEnd 0.5s linear forwards;
+        }
+    </style>
+
+    <div class="section section01">
+        <h1>hellow world</h1>
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Totam omnis, ipsa voluptates quaerat praesentium a commodi. Quae libero ipsam unde doloribus quod aut, reprehenderit obcaecati, saepe facere odio fugit delectus.</p>
+        <button id="ajxBtn" onclick="
+        document.getElementById('loading').classList.add('loadingActive');
+        document.getElementById('loading').classList.remove('loadingEnd');
+        ">change page</button>
+    </div>
+
+    <div id="loading" style="display: block;" onclick="
+        document.getElementById('loading').classList.add('loadingEnd');
+        document.getElementById('loading').classList.remove('loadingActive');
+    ">
+        
+    </div>
+
+    <script>
+        const button = document.getElementById('ajxBtn');
+        button.addEventListener('click',()=>{
+            document.getElementById('loading').style.display = "block";
+            fetch('fetchTest.json').then(function(response){
+                return response.json();
+                // console.log(response.json());
+                document.getElementById('loading').style.display = "none";
+                // response.text().then(function(text){
+                //     setTimeout(() => {
+                //         document.querySelector('p').innerHTML = text;    
+                //         document.getElementById('loading').style.display = "none";
+                //     }, 1000);
+                // })
+            })
+        })
+
+    </script>
+
+</body>
+</html>

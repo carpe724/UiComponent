@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<title>Page Title</title>
+<link rel="stylesheet" href="https://malihu.github.io/custom-scrollbar/jquery.mCustomScrollbar.min.css" />
+</head>
+<body>
+
+<h1>My First Heading</h1>
+<div class="content" style="width: 300px; height: 500px;background: red;">
+    <p>My first paragraph.</p>
+    <p>My first paragraph.</p>
+    <p>My first paragraph.</p>
+    <p>My first paragraph.</p>
+    <p>My first paragraph.</p>
+    <p>My first paragraph.</p>
+    <p>My first paragraph.</p>
+    <p>My first paragraph.</p>
+    <p>My first paragraph.</p>
+    <p>My first paragraph.</p>
+    <p>My first paragraph.</p>
+    <p>My first paragraph.</p>
+    <p>My first paragraph.</p>
+    <p>My first paragraph.</p>
+    <p>My first paragraph.</p>
+    <p>My first paragraph.</p>
+    <p>My first paragraph.</p>
+    <p>My first paragraph.</p>
+    <p>My first paragraph.</p>
+    <p>My first paragraph.</p>
+    <p>My first paragraph.</p>
+    <p>My first paragraph.</p>
+    <p>My first paragraph.</p>
+    <p>My first paragraph.</p>
+    <p>My first paragraph.</p>
+    <p>My first paragraph.</p>
+    <p>My first paragraph.</p>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="https://malihu.github.io/custom-scrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
+<script>
+    (function($){
+        $(window).on("load",function(){
+            $(".content").mCustomScrollbar({
+				theme: "rounded-dots",
+				scrollButtons: {enable:true},
+                scrollInertia: 0,
+                scrollEasing: "easeOut"
+			});
+        });
+    })(jQuery);
+</script>
+</body>
+</html>

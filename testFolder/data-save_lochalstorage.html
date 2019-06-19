@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+    <textarea name="" id="textarea" cols="30" rows="10">
+
+    </textarea>
+    <button id="save">save</button>
+    <button id="output">output</button>
+    <div id="savedText">
+
+    </div>
+
+    <div id="savedObject">
+
+    </div>
+
+<script>
+    var textarea = document.getElementById('textarea'),
+        save = document.getElementById('save'),
+        output = document.getElementById('output');
+        savedText = document.getElementById('savedText');
+        savedObject = document.getElementById('savedObject');
+        testObject = { 'one': 1, 'two': 2, 'three': 3 };
+
+    save.addEventListener('click', function(){
+        localStorage.setItem('savedKey', textarea.value);
+
+        localStorage.setItem('testObject', JSON.stringify(testObject));
+        // console.log(savedKey);
+    })
+
+
+    var retrievedObject = localStorage.getItem('testObject');
+
+    // output.addEventListener('click', function(){
+    //     savedText.innerHTML = localStorage.getItem('savedKey');
+    //     console.log(localStorage.getItem('savedKey'));
+    // })
+
+    output.addEventListener('click', function(){
+        savedObject.innerHTML = localStorage.getItem('testObject');
+        console.log('retrievedObject: ', JSON.parse(retrievedObject));
+    })
+
+</script>
+
+</body>
+</html>

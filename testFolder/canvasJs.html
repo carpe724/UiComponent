@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.css">
+    <title>Canvas</title>
+</head>
+<body onload="draw()">
+    <style>
+    body{
+        background: gainsboro;
+    }
+    canvas{
+        /* width: 700px; */
+        /* height: 700px; */
+        border-radius: 10px;
+        background: #fff;
+        margin-top: 20px;
+    }
+    #content{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .setting{
+        margin-top: 30px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .colors{
+        margin-top: 20px;
+    }
+    .colors li{
+        display: inline-block;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        cursor: pointer;
+    }
+    .setting__Btns{
+        margin-top: 20px;
+    }
+    .setting__Btns button{
+        all: unset;
+        color: #fff;
+        padding: 7px 7px 3px;
+        background: #bbb;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+    </style>
+    <div id="content">
+        <canvas id="canvas" width="700px" height="700px">
+            !대체컨텐츠 삽입
+        </canvas>
+        <div class="setting">
+            <input type="range" min="0.1" max="5" step="0.1" value="2.5">
+            <ul class="colors">
+                <li style="background: #2b2b2b"></li>
+                <li style="background: white"></li>
+                <li style="background: red"></li>
+                <li style="background: orange"></li>
+                <li style="background: yellow"></li>
+                <li style="background: green"></li>
+                <li style="background: blue"></li>
+                <li style="background: midnightblue"></li>
+                <li style="background: purple"></li>
+            </ul>
+            <div class="setting__Btns">
+                <button>Fill</button>
+                <button>Save</button>
+                <button id="clear">Clear</button>
+            </div>
+        </div>
+    </div>
+    <script src="canvasJs.js"></script>
+</body>
+</html>
