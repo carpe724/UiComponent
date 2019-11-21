@@ -1,0 +1,99 @@
+.Keyword{
+    width: 980px;
+    margin: 0 auto;
+    margin-top: 50px;
+
+    &__form, 
+    &__labelBox,
+    &__cardBox{
+        margin-top: 10px;
+        padding: 50px 20px;
+        background: #ebebeb;
+
+        &:first-child{
+            margin-top: 0;
+        }
+    }
+
+    &__label{
+        margin-bottom: 15px;
+        font-size: 16px;
+        font-weight: 600;
+    }
+
+    &__input{
+        width: 200px;
+        height: 40px;
+        line-height: 40px;
+        margin: 0;
+        padding: 0 10px;
+        font-size: 14px;
+    }
+
+    &__submit{
+        min-width: 80px;
+        line-height: 40px;
+        height: 40px;
+        margin: 0;
+        margin-left: 10px;
+        padding: 0 8px;
+        border: 0;
+        background: darkblue;
+        color: #fff;
+        font-size: 14px;
+    }
+
+    &__labelList{
+        display: inline-flex;
+        flex-wrap: nowrap;
+    }
+}
+
+.KeywordItem{
+    display: inline-flex;
+    align-items: center;
+    margin-left: 10px;
+    padding: 6px 10px;
+    background: #ccc;
+    border-radius: 2px;
+    line-height: 1;
+
+    $num-colors: 20;
+    @for $i from 0 to $num-colors {
+        &:nth-child(#{$i}) {
+            color: rgb(random(255), random(255), random(255));
+        }
+    }
+
+    &:first-child{
+        margin-left: 0;
+    }
+
+    &__delete{
+        width: 12px;
+        height: 12px;
+        margin: 0;
+        margin-left: 5px;
+        padding: 0;
+        border: 0;
+        background: url(https://image.flaticon.com/icons/svg/61/61155.svg) no-repeat center;
+        background-size: contain;
+        cursor: pointer;
+    }
+
+    
+}
+
+
+.KeywordCard{
+    &__thumb[thumbSrc]{
+
+    }
+
+    &__title{
+        font-size: 16px;
+        font-weight: 600;
+    }
+
+    &__desc{}
+}
