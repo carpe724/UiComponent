@@ -1,0 +1,27 @@
+body, html{
+    margin: 0;
+    padding: 0;
+}
+#canvas{
+    background-color: #efefef;
+}
+
+.controlArea{
+    position: fixed;
+    top: 0;
+    background: #ccc;
+    border-bottom: 2px solid #aaa;
+    width: 100%;
+    text-align: center;
+}
+
+.controlArea button{
+    height: 40px;
+    color: white;
+    background-color: #aaa;
+    cursor: pointer;
+}
+
+.controlArea button.active{
+    background: #333;
+}

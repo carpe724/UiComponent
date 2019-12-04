@@ -1,0 +1,123 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+*{
+    box-sizing: border-box;
+}
+.wrap{
+    padding: 20px;
+    height: 100vh;
+    background: #ebebeb;
+    display: flex;
+    flex-direction: row;
+}
+
+.control{
+    flex-basis: 200px;
+    padding: 20px;
+    background: #fff;
+}
+
+.view{
+    flex: 1;
+    background: #fff;
+    margin-left: 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+.optionList li{
+    margin-top: 20px;
+}
+
+.optionList li:first-child{
+    margin-top: 0;
+}
+
+.view .box{
+    background: #fff;
+    border: 1px solid #000;
+    position: absolute;
+}
+
+.view .box .resizeBox{
+    min-height: 20px;
+    min-width: 50px;
+    padding: 20px;
+    resize: both;
+    overflow: auto;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    flex-direction: column;
+    pointer-events: none;
+    text-align: center;
+}
+.view .box .resizeBox::after{
+    content: '';
+    display: block;
+    width: 15px;
+    height: 15px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background: red;
+
+}
+
+.view .box h2{
+    font-size: 18px;
+    text-align: center;
+}
+
+.view .box span{
+    padding-top: 5px;
+    font-size: 13px;
+    color: #666;
+}

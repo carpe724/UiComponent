@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="wrap">
+        <div class="control">
+            <form action="" name="formBox">
+                <ul class="optionList">
+                    <li>
+                        <label for="spaceName">공간이름</label>
+                        <input type="text" name="spaceName">
+                    </li>
+                    <li>
+                        <label for="">면적 (m<sup>2</sup>)</label>
+                        <sup>2</sup>
+                        <input type="text" name="spaceArea">
+                    </li>
+                    <li>
+                        <label for="">컬러</label>
+                        <select name="spaceColor">
+                            <option value="#e9e9ec">depth 1</option>
+                            <option value="#bdc7cc">depth 2</option>
+                            <option value="#9da9b2">depth 3</option>
+                            <option value="#ccc2bd">depth 4</option>
+                            <option value="#5e656a">depth 5</option>
+                        </select>
+                    </li>
+                    <li>
+                        <label for="">보더 두깨</label>
+                        <input type="text" placeholder="default 1">
+                    </li>
+                </ul>
+
+                <button class="create" type="submit">생성</button>
+                <button class="delete">지우기</button>
+                
+                <hr>
+
+                <h2>기타옵션</h2>
+                <br>
+
+                <ul class="optionList">
+                    <li>
+                        <label for="">가이드선 보기</label>
+                        <input type="checkbox">
+                    </li>
+                </ul>
+            </form>
+        </div>
+        <div class="view">
+        </div>
+    </div>
+
+    <script src="index.js"></script>
+</body>
+</html>

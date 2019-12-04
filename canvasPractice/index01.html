@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>캔버스</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="wrap">
+        <div class="controlArea">
+            <button onclick="canvasClear()">Canvas Clear</button>
+            <button id="mode">Canvas line mode</button>
+            <button onclick="histroyBack()">histroyBack</button>
+            <select name="" id="" onchange="colorChoose(this.value)">
+                <option value="black">black</option>
+                <option value="blue">blue</option>
+                <option value="red">red</option>
+            </select>
+        </div>
+        <div class="canvasArea">
+            <canvas id="canvas"></canvas>
+        </div>
+    </div>
+
+    <script src="./canvas02.js"></script>
+</body>
+</html>
