@@ -11,7 +11,7 @@ function createAct(e){
 
     let template = `
         <div class="box" style="background-color:${formBox.spaceColor.value}">
-            <div class="resizeBox">
+            <div class="resizeBox" style="max-width:${}px;">
                 <h2>${formBox.spaceName.value}</h2>
                 <span>${formBox.spaceArea.value}<i>m<sup>2</sup></i></span>
             </div>
