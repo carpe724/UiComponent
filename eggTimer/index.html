@@ -12,43 +12,45 @@
 </head>
 <body>
     <div class="EggTimerApp">
-        <ul class="EggTimerSlider">
-            <li class="EggTimerSlider__item" id="eggCookStep01">
-                <div class="EggTimerSlider__egg">
-                    <span class="EggTimerSlider__eggObj"></span>
+        <div class="EggTimerCountrol">
+            <ul class="EggTimerSlider">
+                <li class="EggTimerSlider__item" id="eggCookStep01">
+                    <div class="EggTimerSlider__egg">
+                        <span class="EggTimerSlider__eggObj"></span>
+                    </div>
+                    <div class="EggTimerSlider__title">반숙</div>
+                </li>
+                <li class="EggTimerSlider__item" id="eggCookStep02">
+                    <div class="EggTimerSlider__egg">
+                        <span class="EggTimerSlider__eggObj"></span>
+                    </div>
+                    <div class="EggTimerSlider__title">중숙</div>
+                </li>
+                <li class="EggTimerSlider__item" id="eggCookStep03">
+                    <div class="EggTimerSlider__egg">
+                        <span class="EggTimerSlider__eggObj"></span>
+                    </div>
+                    <div class="EggTimerSlider__title">완숙</div>
+                </li>
+            </ul>
+            <div class="EggTimerFeature">
+                <div class="EggTimerFeature__item">
+                    <button class="EggTimerFeature__button" id="eggSizeChange">
+                        <div class="EggTimerFeature__title">달걀 사이즈</div>
+                        <div class="EggTimerFeature__desc EggTimerFeature__desc--size">특란</div>
+                    </button>
                 </div>
-                <div class="EggTimerSlider__title">반숙</div>
-            </li>
-            <li class="EggTimerSlider__item" id="eggCookStep02">
-                <div class="EggTimerSlider__egg">
-                    <span class="EggTimerSlider__eggObj"></span>
+                <div class="EggTimerFeature__item">
+                    <button class="EggTimerFeature__button" id="eggTemperatureChange">
+                        <div class="EggTimerFeature__title">보관 온도</div>
+                        <div class="EggTimerFeature__desc EggTimerFeature__desc--temperature">실온</div>
+                    </button>
                 </div>
-                <div class="EggTimerSlider__title">중숙</div>
-            </li>
-            <li class="EggTimerSlider__item" id="eggCookStep03">
-                <div class="EggTimerSlider__egg">
-                    <span class="EggTimerSlider__eggObj"></span>
-                </div>
-                <div class="EggTimerSlider__title">완숙</div>
-            </li>
-        </ul>
-        <div class="EggTimerFeature">
-            <div class="EggTimerFeature__item">
-                <button class="EggTimerFeature__button" id="eggSizeChange">
-                    <div class="EggTimerFeature__title">달걀 사이즈</div>
-                    <div class="EggTimerFeature__desc EggTimerFeature__desc--size">특란</div>
-                </button>
-            </div>
-            <div class="EggTimerFeature__item">
-                <button class="EggTimerFeature__button" id="eggTemperatureChange">
-                    <div class="EggTimerFeature__title">보관 온도</div>
-                    <div class="EggTimerFeature__desc EggTimerFeature__desc--temperature">실온</div>
-                </button>
             </div>
         </div>
         <div class="EggTimer">
             <div class="EggTimer__count" id="eggCounterTimer">
-                03 : 35
+                03:35
             </div>
             <button class="EggTimer__button ir" id="eggCounterPlayBtn">play</button>
         </div>

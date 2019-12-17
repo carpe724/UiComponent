@@ -1,99 +1,152 @@
+const eggSizeBtn = document.querySelector('#eggSizeChange');
+const eggTemperatureBtn = document.querySelector('#eggTemperatureChange');
+const eggCounterTimer = document.querySelector('#eggCounterTimer');
+const eggCounterPlayBtn = document.querySelector('#eggCounterPlayBtn');
+
+const eggSize = ['대란', '특란', '왕란'];
+const eggTemperature = ['실온', '냉장고'];
+const timeArray = [
+    [(1000 * 60 * 3) + (10000 * 4), (1000 * 60 * 4) + (10000 * 4), (1000 * 60 * 8) + (10000 * 4)],
+    [(1000 * 60 * 4) + (10000 * 1), (1000 * 60 * 5) + (10000 * 1), (1000 * 60 * 9) + (10000 * 3)],
+    [(1000 * 60 * 4) + (10000 * 3), (1000 * 60 * 5) + (10000 * 4), (1000 * 60 * 10) + (10000 * 2)]
+]
+let timeArrayX = 0; //계란 사이즈변경
+let timeArrayY = 0; //계란 굽기변경
+let choiceTime = timeArray[timeArrayX][timeArrayY];
+
+// 계란 굽기 (반숙, 중숙, 완숙)
 $('.EggTimerSlider').slick({
     dots: false,
     arrows: false,
     infinite: false
 });
 
-let eggSizeBtn = document.querySelector('#eggSizeChange');
-let eggTemperatureBtn = document.querySelector('#eggTemperatureChange');
+$('.EggTimerSlider').on('afterChange', function(event, slick, currentSlide, nextSlide){
+    if(timeArrayY !== currentSlide){
+        timeArrayY = currentSlide;
+        changeNumber(timeArray[timeArrayX][timeArrayY]);
+    }
+});
 
-const eggSize = ['소란', '중란', '대란', '특란', '왕란'];
-const eggTemperature = ['실온', '냉장고'];
+// 계란 사이즈, 보관온도 변경
+eggSizeBtn.children[1].innerText = eggSize[0];
+eggTemperatureBtn.children[1].innerText = eggTemperature[0];
 
 eggSizeBtn.addEventListener('click', changeEggSize);
 eggTemperatureBtn.addEventListener('click', changeTemperature);
 
-
-let eggStep = 0,
-    temperatureStep = 0;
-
-eggSizeBtn.children[1].innerText = eggSize[eggStep];
-eggSizeBtn.children[1].innerText = eggSize[temperatureStep];
-
-
 function changeEggSize(){
-    if(eggStep < eggSize.length - 1){
-        eggStep++;
-        this.children[1].innerText = eggSize[eggStep];
-    } else{
-        eggStep = 0;
-        this.children[1].innerText = eggSize[eggStep];
+    eggSize.push(eggSize[0]);
+    eggSize.splice(0,1);
+    this.children[1].innerText = eggSize[0];
+    if(timeArrayX < timeArray.length - 1){
+        timeArrayX++
+    }else{
+        timeArrayX = 0;
     }
+    changeNumber(timeArray[timeArrayX][timeArrayY]);
 }
 
+let temperatureStep = false;
 function changeTemperature(){
-    console.log(temperatureStep)
-    if(temperatureStep < eggTemperature.length - 1){
-        temperatureStep++;
-        console.log(temperatureStep)
-        this.children[1].innerText = eggTemperature[temperatureStep];
-    } else{
-        temperatureStep = 0;
-        this.children[1].innerText = eggTemperature[temperatureStep];
+    if(temperatureStep){
+        this.children[1].innerText = eggTemperature[0];
+        temperatureStep = false;
+
+        for(let i = 0; i < timeArray.length; i++){
+            for(let j = 0; j < timeArray[i].length; j++){
+                if(i === 0){
+                    timeArray[0][j] = timeArray[0][j] - 60000;
+                }else{
+                    timeArray[i][j] = timeArray[i][j] - 70000;
+                }
+            }
+        }
+        changeNumber(timeArray[timeArrayX][timeArrayY]);
+    } 
+    else{
+        this.children[1].innerText = eggTemperature[1];
+        temperatureStep = true;
+
+        for(let i = 0; i < timeArray.length; i++){
+            for(let j = 0; j < timeArray[i].length; j++){
+                if(i === 0){
+                    timeArray[0][j] = timeArray[0][j] + 60000;
+                }else{
+                    timeArray[i][j] = timeArray[i][j] + 70000;
+                }
+            }
+        }
+        changeNumber(timeArray[timeArrayX][timeArrayY]);
     }
 }
 
+// 배열에 담긴 숫자 화면에 출력 및 애니메이션
+function changeNumber(number){
+    let timerUnit = function(unitTime){
+        return (unitTime < 10) ? `0${unitTime}` : unitTime; 
+    }
+    let time = new Date(number);
+    let timeMin = time.getUTCMinutes();
+    let timeSec = time.getUTCSeconds();
+    eggCounterTimer.innerHTML = (timeMin) ? `${timerUnit(timeMin)}:${timerUnit(timeSec)}` : `00:${timerUnit(timeSec)}`;
+}
+changeNumber(timeArray[timeArrayX][timeArrayY])
 
-
-// counter
-
-const timeArray = [1000 * 60 * 4, 1000 * 60 * 5, 1000 * 60 * (8 + 5/6)]
-
-const eggCounterTimer = document.querySelector('#eggCounterTimer');
-const eggCounterPlayBtn = document.querySelector('#eggCounterPlayBtn');
-
+// 시계
 eggCounterPlayBtn.addEventListener('click', eggCounterPlay);
 
-let timerInterval
-let togglePlay = true;
+let eggSetTimer;
+let timerToggle = true;
 
 function eggCounterPlay(){
-    if(togglePlay){
-        timerInterval = setInterval(timerFnc, 1000 )
-        togglePlay = false;
+    if(timerToggle){
+        countTimer(timeArray[timeArrayX][timeArrayY]);
+        eggCounterPlayBtn.classList.add('pause');
+        timerToggle = false;
     }else{
-        clearInterval(timerInterval)
-        togglePlay = true;
+        clearTimeout(eggSetTimer);
+        changeNumber(timeArray[timeArrayX][timeArrayY]);
+        locking(false);
+        eggCounterPlayBtn.classList.remove('pause');
+        timerToggle = true;
     }
 }
 
-let resultTime = timeArray[0];
-
-let mm = 0;
-let ss = 0;
-
-if(resultTime){
-    mm = Math.floor(resultTime / 60 / 1000);
-    ss = (resultTime % 60000) / 1000;
+const countTimer = function(time){
+    locking(true);
+    let distanceTime = (+new Date) + time + 500;
+    let timerUnit = function(unitTime){
+        return (unitTime < 10) ? `0${unitTime}` : unitTime; 
+    }
+    let timerRepeat = function(){
+        let leftTime = distanceTime - (+new Date);
+        if(leftTime < 0){
+            alert('완료');
+            locking(false);
+        }else{
+            let time = new Date(leftTime);
+            let timeMin = time.getUTCMinutes();
+            let timeSec = time.getUTCSeconds();
+            eggCounterTimer.innerHTML = (timeMin) ? `${timerUnit(timeMin)}:${timerUnit(timeSec)}` : `00:${timerUnit(timeSec)}`;
+            eggSetTimer = setTimeout(timerRepeat, time.getUTCMilliseconds() + 500);
+        }
+    }
+    timerRepeat()
 }
 
-eggCounterTimer.innerText = `${mm} : ${ss}`;
-
-function timerFnc(){
-
-    eggCounterTimer.innerText = `${mm} : ${ss}`;
-
-    resultTime = resultTime - 1000;
-
-
-    mm = Math.floor(resultTime / 60 / 1000);
-    ss = (resultTime % 60000) / 1000;
+// 락기능
+function locking(lock){
+    if(lock){
+        document.querySelector('.EggTimerCountrol').style.pointerEvents = 'none';
+    }else{
+        document.querySelector('.EggTimerCountrol').style.pointerEvents = 'auto';
+    }
 }
 
-let time = new Date();
-let endtime = time + 1000 + 500;
 
-let endTime = (+new Date) + 1000 + 500;
-let msLeft = endTime - (+new Date);
+// 주요 기능
+// 1.사이즈/온도/계란크기 변경시마다 시간변경
 
-console.log(endTime, msLeft)
+// 추가 기능
+// 1. 타이머 시작시 다른 옵션창 선택안되게하기

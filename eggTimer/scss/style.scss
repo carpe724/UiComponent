@@ -10,8 +10,15 @@
     box-sizing: border-box;
 }
 
+.EggTimerCountrol{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex: 3;
+}
+
 .EggTimerSlider{
-    flex-basis: 50%;
+    margin-top: 12vh;
 
     &__item{
         display: flex;
@@ -21,7 +28,7 @@
     }
 
     &__egg{
-
+        
     }
 
     &__eggObj{
@@ -30,13 +37,13 @@
         height: 200px;
         margin: 20px auto 30px;
     
-        // -webkit-border-radius: 50%/60% 60% 40% 40%;
-        // -moz-border-radius: 50%/60% 60% 40% 40%;
-        // border-radius: 50%/60% 60% 40% 40%;
+        -webkit-border-radius: 50%/60% 60% 40% 40%;
+        -moz-border-radius: 50%/60% 60% 40% 40%;
+        border-radius: 50%/60% 60% 40% 40%;
     
-        // -webkit-box-shadow: 0px 0px 20px #D5D3D3, 0px 0px 20px #D5D3D3;
-        // -moz-box-shadow: 0px 0px 20px #D5D3D3, 0px 0px 20px #D5D3D3;
-        // box-shadow: 0px 0px 20px #D5D3D3, 0px 0px 20px #D5D3D3;
+        -webkit-box-shadow: 0px 0px 20px #D5D3D3, 0px 0px 20px #D5D3D3;
+        -moz-box-shadow: 0px 0px 20px #D5D3D3, 0px 0px 20px #D5D3D3;
+        box-shadow: 0px 0px 20px #D5D3D3, 0px 0px 20px #D5D3D3;
     }
 
     &__title{
@@ -89,6 +96,7 @@
 }
 
 .EggTimer{
+    flex: 1;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -96,13 +104,15 @@
     height: 70px;
 
     &__count{
+        flex-basis: 150px;
+        text-align: center;
         font-size: 50px;
         color: #fff;
         font-weight: 600;
     }
 
     &__button{
-        margin-left: 20px;
+        margin-left: 10px;
         width: 45px;
         height: 45px;
         background: #666;
@@ -121,6 +131,25 @@
             top: 50%;
             margin-left: 8px;
             transform: translate(-50%, -50%) scaleY( 0.7 );
+        }
+    }
+
+    &__button.pause{
+        &::before{
+            content: '';
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            background: #fff;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            
+        }
+
+        &::after{
+            display: none;
         }
     }
 }

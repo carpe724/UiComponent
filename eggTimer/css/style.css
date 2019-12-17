@@ -1,10 +1,12 @@
 .EggTimerApp { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; -webkit-box-pack: center; -ms-flex-pack: center; justify-content: center; width: 100%; height: 100vh; padding: 10px; background: #333; text-align: center; -webkit-box-sizing: border-box; box-sizing: border-box; }
 
-.EggTimerSlider { -ms-flex-preferred-size: 50%; flex-basis: 50%; }
+.EggTimerCountrol { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; -webkit-box-pack: center; -ms-flex-pack: center; justify-content: center; -webkit-box-flex: 3; -ms-flex: 3; flex: 3; }
+
+.EggTimerSlider { margin-top: 12vh; }
 
 .EggTimerSlider__item { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; -webkit-box-pack: center; -ms-flex-pack: center; justify-content: center; height: 100%; }
 
-.EggTimerSlider__eggObj { display: inline-block; width: 125px; height: 200px; margin: 20px auto 30px; }
+.EggTimerSlider__eggObj { display: inline-block; width: 125px; height: 200px; margin: 20px auto 30px; border-radius: 50%/60% 60% 40% 40%; -webkit-box-shadow: 0px 0px 20px #D5D3D3, 0px 0px 20px #D5D3D3; box-shadow: 0px 0px 20px #D5D3D3, 0px 0px 20px #D5D3D3; }
 
 .EggTimerSlider__title { color: #fff; }
 
@@ -22,10 +24,14 @@
 
 .EggTimerFeature__desc { margin-top: 10px; -webkit-padding-after: 10px; padding-block-end: 10px; font-size: 16px; font-weight: 600; }
 
-.EggTimer { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-pack: center; -ms-flex-pack: center; justify-content: center; -webkit-box-align: center; -ms-flex-align: center; align-items: center; margin-top: 20px; height: 70px; }
+.EggTimer { -webkit-box-flex: 1; -ms-flex: 1; flex: 1; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-pack: center; -ms-flex-pack: center; justify-content: center; -webkit-box-align: center; -ms-flex-align: center; align-items: center; margin-top: 20px; height: 70px; }
 
-.EggTimer__count { font-size: 50px; color: #fff; font-weight: 600; }
+.EggTimer__count { -ms-flex-preferred-size: 150px; flex-basis: 150px; text-align: center; font-size: 50px; color: #fff; font-weight: 600; }
 
-.EggTimer__button { margin-left: 20px; width: 45px; height: 45px; background: #666; border-radius: 50%; position: relative; }
+.EggTimer__button { margin-left: 10px; width: 45px; height: 45px; background: #666; border-radius: 50%; position: relative; }
 
 .EggTimer__button:after { content: ''; width: 0; height: 0; border-style: solid; border-width: 12px; border-color: transparent transparent transparent #fff; position: absolute; left: 50%; top: 50%; margin-left: 8px; -webkit-transform: translate(-50%, -50%) scaleY(0.7); transform: translate(-50%, -50%) scaleY(0.7); }
+
+.EggTimer__button.pause::before { content: ''; display: inline-block; width: 16px; height: 16px; background: #fff; position: absolute; left: 50%; top: 50%; -webkit-transform: translate(-50%, -50%); transform: translate(-50%, -50%); }
+
+.EggTimer__button.pause::after { display: none; }
