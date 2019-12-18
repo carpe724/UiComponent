@@ -12,7 +12,6 @@ const timeArray = [
 ]
 let timeArrayX = 0; //계란 사이즈변경
 let timeArrayY = 0; //계란 굽기변경
-let choiceTime = timeArray[timeArrayX][timeArrayY];
 
 // 계란 굽기 (반숙, 중숙, 완숙)
 $('.EggTimerSlider').slick({
@@ -81,15 +80,48 @@ function changeTemperature(){
     }
 }
 
-// 배열에 담긴 숫자 화면에 출력 및 애니메이션
+let prevNumber = timeArray[timeArrayX][timeArrayY];
 function changeNumber(number){
     let timerUnit = function(unitTime){
         return (unitTime < 10) ? `0${unitTime}` : unitTime; 
     }
-    let time = new Date(number);
-    let timeMin = time.getUTCMinutes();
-    let timeSec = time.getUTCSeconds();
-    eggCounterTimer.innerHTML = (timeMin) ? `${timerUnit(timeMin)}:${timerUnit(timeSec)}` : `00:${timerUnit(timeSec)}`;
+    let tobeNumber = number;
+    let standNumber = tobeNumber - prevNumber;
+
+    if(standNumber > 0){
+        increaseNumber();
+    }else if(standNumber < 0){
+        decreaseNumber();
+    }else{
+        timeFnc(number);
+    }
+
+    function timeFnc(number){
+        let time = new Date(number);
+        let timeMin = time.getUTCMinutes();
+        let timeSec = time.getUTCSeconds();
+        eggCounterTimer.innerHTML = (timeMin) ? `${timerUnit(timeMin)}:${timerUnit(timeSec)}` : `00:${timerUnit(timeSec)}`;
+    }
+
+    function increaseNumber(){
+        if(prevNumber < tobeNumber){
+            prevNumber = prevNumber + (standNumber/10/2);
+            timeFnc(prevNumber);
+            setTimeout(increaseNumber, 10)
+        }else{
+            prevNumber = number;
+        }
+    }
+
+    function decreaseNumber(){
+        if(prevNumber > tobeNumber){
+            prevNumber = prevNumber + (standNumber/10/2);
+            timeFnc(prevNumber);
+            setTimeout(decreaseNumber, 10)
+        }else{
+            prevNumber = number;
+        }
+    }
 }
 changeNumber(timeArray[timeArrayX][timeArrayY])
 
@@ -124,6 +156,9 @@ const countTimer = function(time){
         if(leftTime < 0){
             alert('완료');
             locking(false);
+            changeNumber(timeArray[timeArrayX][timeArrayY]);
+            eggCounterPlayBtn.classList.remove('pause');
+            timerToggle = true;
         }else{
             let time = new Date(leftTime);
             let timeMin = time.getUTCMinutes();
@@ -143,10 +178,3 @@ function locking(lock){
         document.querySelector('.EggTimerCountrol').style.pointerEvents = 'auto';
     }
 }
-
-
-// 주요 기능
-// 1.사이즈/온도/계란크기 변경시마다 시간변경
-
-// 추가 기능
-// 1. 타이머 시작시 다른 옵션창 선택안되게하기
