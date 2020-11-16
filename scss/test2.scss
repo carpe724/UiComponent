@@ -1,0 +1,10 @@
+body{
+    float: left;
+    height: 100%;
+    font-size: 12px;
+
+    section{
+        display: flex;
+        flex-direction: column;
+    }
+}
