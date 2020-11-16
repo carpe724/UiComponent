@@ -1,0 +1,22 @@
+body, html { padding: 0; margin: 0; background-color: #000; }
+
+.section { height: 100vh; color: #fff; text-align: center; display: -webkit-box; display: -ms-flexbox; display: flex; width: 100%; -webkit-box-align: center; -ms-flex-align: center; align-items: center; -webkit-box-pack: center; -ms-flex-pack: center; justify-content: center; opacity: 0.5; }
+
+.section01 { background-color: #ffc44f; }
+
+.section02 { background-color: #04588c; }
+
+.section03 { background-color: #d9d4d2; }
+
+.section04 { background-color: #f2490c; }
+
+.section05 { background-color: #a60d0d; }
+
+.section06 { background-color: #eadd96; }
+
+.section07 { background-color: #ffdc42; }
+
+.section08 { background-color: #c5b358; }
+
+.section09 { background-color: #d40000; }
+/*# sourceMappingURL=style.css.map */

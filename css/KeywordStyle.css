@@ -1,0 +1,62 @@
+.Keyword { width: 980px; margin: 0 auto; margin-top: 50px; }
+
+.Keyword__form, .Keyword__labelBox, .Keyword__cardBox { margin-top: 10px; padding: 50px 20px; background: #ebebeb; }
+
+.Keyword__form:first-child, .Keyword__labelBox:first-child, .Keyword__cardBox:first-child { margin-top: 0; }
+
+.Keyword__label { margin-bottom: 15px; font-size: 16px; font-weight: 600; }
+
+.Keyword__input { width: 200px; height: 40px; line-height: 40px; margin: 0; padding: 0 10px; font-size: 14px; }
+
+.Keyword__submit { min-width: 80px; line-height: 40px; height: 40px; margin: 0; margin-left: 10px; padding: 0 8px; border: 0; background: darkblue; color: #fff; font-size: 14px; }
+
+.Keyword__labelList { display: -webkit-inline-box; display: -ms-inline-flexbox; display: inline-flex; -ms-flex-wrap: nowrap; flex-wrap: nowrap; }
+
+.KeywordItem { display: -webkit-inline-box; display: -ms-inline-flexbox; display: inline-flex; -webkit-box-align: center; -ms-flex-align: center; align-items: center; margin-left: 10px; padding: 6px 10px; background: #ccc; border-radius: 2px; line-height: 1; }
+
+.KeywordItem:nth-child(0) { color: #683fcc; }
+
+.KeywordItem:nth-child(1) { color: #a0c677; }
+
+.KeywordItem:nth-child(2) { color: #30482d; }
+
+.KeywordItem:nth-child(3) { color: #f04699; }
+
+.KeywordItem:nth-child(4) { color: #02a0f6; }
+
+.KeywordItem:nth-child(5) { color: #936019; }
+
+.KeywordItem:nth-child(6) { color: #2e2da3; }
+
+.KeywordItem:nth-child(7) { color: #5b5541; }
+
+.KeywordItem:nth-child(8) { color: #9a20bc; }
+
+.KeywordItem:nth-child(9) { color: #866063; }
+
+.KeywordItem:nth-child(10) { color: #9d8919; }
+
+.KeywordItem:nth-child(11) { color: #f1ec68; }
+
+.KeywordItem:nth-child(12) { color: #cbed9c; }
+
+.KeywordItem:nth-child(13) { color: #12595b; }
+
+.KeywordItem:nth-child(14) { color: #c8b0ff; }
+
+.KeywordItem:nth-child(15) { color: #6cb481; }
+
+.KeywordItem:nth-child(16) { color: #0eca91; }
+
+.KeywordItem:nth-child(17) { color: #9c2553; }
+
+.KeywordItem:nth-child(18) { color: #557d2e; }
+
+.KeywordItem:nth-child(19) { color: #71a6e9; }
+
+.KeywordItem:first-child { margin-left: 0; }
+
+.KeywordItem__delete { width: 12px; height: 12px; margin: 0; margin-left: 5px; padding: 0; border: 0; background: url(https://image.flaticon.com/icons/svg/61/61155.svg) no-repeat center; background-size: contain; cursor: pointer; }
+
+.KeywordCard__title { font-size: 16px; font-weight: 600; }
+/*# sourceMappingURL=KeywordStyle.css.map */
